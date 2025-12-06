@@ -1,0 +1,29 @@
+import {useContext} from "react";
+import {StudentCtx} from "../contexts/Students";
+
+const AllStudentList=()=>{
+   const {
+      studentStates,
+      dispatch,
+      absentHandler,
+      presentHandler}=useContext(StudentCtx);
+
+   return(
+      <div className="list all-students">
+            <ul>
+               <h2>All Students</h2>
+               {studentStates.students.map(student=>(
+                  <li key={student.id}>
+                     <span>{student.name}</span>
+                     <button onClick={()=>dispatch({type:"edit_student",payload:student,})}>Edit</button>
+                     <button onClick={()=>dispatch({type:"remove_student", payload:student.id})}>Delete</button>
+                     <button onClick={()=>presentHandler(student)}>Make Present</button>
+                     <button onClick={()=>absentHandler(student)}>Make Absent</button>
+                  </li>   
+               ))}
+            </ul>
+         </div>
+   )
+};
+
+export default AllStudentList;
