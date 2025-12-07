@@ -7,7 +7,7 @@ const PresentStudentList=()=>{
       toggleList}=useContext(StudentCtx);
 
 
-   const presentStudentList=studentStates.filter(
+   const presentStudentList=studentStates.students.filter(
       (item)=>item.isPresent===true
    ); //derived state
    return(

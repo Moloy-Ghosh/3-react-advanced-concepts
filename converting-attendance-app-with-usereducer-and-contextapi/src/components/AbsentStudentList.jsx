@@ -5,12 +5,12 @@ const PresentStudentList=()=>{
    const {studentStates, toggleList}=useContext(StudentCtx);
 
 
-   const presentStudentList=studentStates.filter(
+   const presentStudentList=studentStates.students.filter(
       (item)=>item.isPresent===false,
    ); //derived state
    return(
       <div className="list present-students">
-            <h2>Present Students</h2>
+            <h2>Absent Students</h2>
             <ul>
                {presentStudentList.map((student)=>(
                   <li key={student.id}>

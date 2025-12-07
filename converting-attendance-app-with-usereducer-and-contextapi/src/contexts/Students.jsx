@@ -1,6 +1,6 @@
 import {createContext, useReducer} from "react"
 export const StudentCtx=createContext();
-const initState={
+const initState= {
    studentName:"",
    students:[],
    editMode:false,
@@ -108,7 +108,11 @@ const StudentProvider=(props)=>{
 
    const makeAbsentHandler=(student)=>{
       if(student.isPresent!==undefined){
-         return alert(`already in the.........`);
+         return alert(
+            `This stuent is allready in the ${
+               student.isPresent=== true?"Present List":"Absent List"
+            }`,
+         );
       }
       dispatch({
          type:"change_isPresent_status_of_a_student",
