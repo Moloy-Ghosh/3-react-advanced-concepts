@@ -1,4 +1,4 @@
-import React from 'react';
+
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -8,9 +8,7 @@ import StudentProvider from './contexts/Students';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StudentProvider>
-   <App>
-      <div>hello world</div>
-   </App>
+   <App/>
   </StudentProvider>
 );
 

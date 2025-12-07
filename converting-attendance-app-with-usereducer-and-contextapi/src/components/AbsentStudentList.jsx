@@ -1,18 +1,18 @@
 import {useContext} from "react";
 import {StudentCtx} from "../contexts/Students";
 
-const PresentStudentList=()=>{
+const AbsentStudentList=()=>{
    const {studentStates, toggleList}=useContext(StudentCtx);
 
 
-   const presentStudentList=studentStates.students.filter(
+   const absentStudentList=studentStates.students.filter(
       (item)=>item.isPresent===false,
    ); //derived state
    return(
       <div className="list present-students">
             <h2>Absent Students</h2>
             <ul>
-               {presentStudentList.map((student)=>(
+               {absentStudentList.map((student)=>(
                   <li key={student.id}>
                      {student.name}
                      <button onClick={()=>toggleList(student)}>Accidently Added</button>
@@ -23,4 +23,4 @@ const PresentStudentList=()=>{
    )
 }
 
-export default PresentStudentList;
+export default AbsentStudentList;
