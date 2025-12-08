@@ -51,11 +51,11 @@ function App() {
    }
 
    const editHandler=()=>{
-      const {id,...rest}=editableNote;
+      const {id,...rest}=editable;
       const updatedNote={...rest,title:note};
       fetch(`http://localhost:4000/notes/${editable.id}`,{
          method:"PUT",
-         body:JSON.stringity(updateNote),
+         body:JSON.stringify(updatedNote),
          headers:{
             "Content-type":"application/json"
          },
