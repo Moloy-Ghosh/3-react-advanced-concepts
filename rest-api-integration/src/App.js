@@ -10,10 +10,14 @@ function App() {
    const [edit, setEdit]=useState(false);
    const [editable,setEditable]=useState(null);
 
-   useEffect(()=>{
+   const getAllNotes=()=>{
       fetch(`http://localhost:4000/notes`)
       .then((res)=>res.json())
       .then((data)=>setNotes(data));
+   };
+
+   useEffect(()=>{
+      getAllNotes();
    },[]);
 
 
@@ -42,9 +46,7 @@ function App() {
          },
       }).then(()=>{
          //refetch
-         fetch(`http://localhost:4000/notes`)
-         .then((res)=>res.json())
-         .then((data)=>setNotes(data));
+         getAllNotes();
       });
       //setNotes([newNote,...notes]);
       setNote("");
@@ -61,9 +63,7 @@ function App() {
          },
       }).then(()=>{
          //refetch
-         fetch(`http://localhost:4000/notes`)
-         .then((res)=>res.json())
-         .then((data)=>setNotes(data));
+         getAllNotes();
          setNote('');
          setEdit(false);
       })
