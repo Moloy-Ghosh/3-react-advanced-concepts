@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import ContactPage from "../pages/ContactPage";
 import ErrorPage from "../pages/ErrorPage";
+import PostList from "../pages/PostList";
+import PostDetails from "../pages/PostDetails";
 import App from "../App";
 
 export const router = createBrowserRouter([
@@ -15,7 +17,18 @@ export const router = createBrowserRouter([
          {index:true, element:<Home/>},
          {path:"about",element:<About/>},
          {path:"/contactwithme",element:<ContactPage/>},
-         {path:"/all-notes", element:<App/>}
+
+         {path:"/all-notes", element:<App/>},
+
+         {path:"/posts/:postid",element:<PostDetails/>},
+
+         {path:"/all-posts", 
+            element:<PostList/>,
+            loader:()=>
+               fetch(
+                  `https://jsonplaceholder.typicode.com/posts`,
+               )
+         }
       ],
    }
 ]);

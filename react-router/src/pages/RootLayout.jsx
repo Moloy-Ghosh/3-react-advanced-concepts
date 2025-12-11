@@ -19,6 +19,9 @@ export default function Root(){
                <li>
                   <Link to={'/all-notes'}>Notes</Link>
                </li>
+               <li>
+                  <Link to={'/all-posts'}>Your Posts</Link>
+               </li>
             </ul>
          </nav>
       </div>
